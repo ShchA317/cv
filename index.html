@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +8,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var l = localStorage.getItem('homepage-lang');
+        if (l === 'en') {
+          document.documentElement.lang = 'en';
+          document.documentElement.setAttribute('data-lang', 'en');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <header class="hero">
     <div class="hero-bg"></div>
     <div class="container hero-inner">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <span class="lang-label" data-lang-label="ru">RU</span>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-pressed="false" aria-label="Переключить язык: русский или английский">
+          <span class="lang-toggle-knob" aria-hidden="true"></span>
+        </button>
+        <span class="lang-label" data-lang-label="en">EN</span>
+      </div>
       <h1 class="hero-title">Alexander</h1>
-      <p class="hero-subtitle">QA Fullstack · Java / Kotlin · Автотесты в бекенде</p>
-      <p class="hero-tagline">4 года в финтехе · Бакалавр · Готов к менторству и новым вызовам</p>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">QA Fullstack · Java / Kotlin · Автотесты в бэкенде</p>
+      <p class="hero-tagline" data-i18n="hero_tagline">4 года в финтехе · Бакалавр · Готов к менторству и новым вызовам</p>
       <nav class="hero-nav">
-        <a href="#roadmaps">Путь</a>
-        <a href="#skills">Навыки</a>
-        <a href="#about">Обо мне</a>
-        <a href="#contact">Контакты</a>
+        <a href="#roadmaps" data-i18n="nav_roadmaps">Путь</a>
+        <a href="#skills" data-i18n="nav_skills">Навыки</a>
+        <a href="#about" data-i18n="nav_about">Обо мне</a>
+        <a href="#contact" data-i18n="nav_contact">Контакты</a>
       </nav>
     </div>
   </header>
@@ -28,11 +46,11 @@
   <main>
     <section id="roadmaps" class="section roadmaps-section">
       <div class="container">
-        <h2 class="section-title">Два пути</h2> <br>
+        <h2 class="section-title" data-i18n="section_two_paths">Два пути</h2> <br>
 
         <div class="roadmaps-grid">
           <div class="roadmap roadmap-education">
-            <h3 class="roadmap-heading">
+            <h3 class="roadmap-heading" data-i18n="education_heading">
               Образование
             </h3>
             <div class="timeline">
@@ -40,125 +58,124 @@
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                   <div class="uni-header">
-                    <a href="https://itmo.ru" class="uni-logo-link" title="ИТМО" target="_blank" rel="noopener">
-                      <img src="assets/logo-itmo.png" alt="ИТМО" class="uni-logo" />
+                    <a href="https://itmo.ru" class="uni-logo-link" data-logo-link="itmo" title="ИТМО" target="_blank" rel="noopener">
+                      <img src="assets/logo-itmo.png" data-logo-alt="itmo" alt="ИТМО" class="uni-logo" />
                     </a>
                     <div>
-                      <h4>Бакалавриат</h4>
-                      <p class="timeline-meta">Университет ИТМО · Факультет программной инженерии и компьютерной техники</p>
-                      <a href="https://abit.itmo.ru/program/bachelor/system_software" class="uni-program-link">Программная инженерия</a>
+                      <h4 data-i18n="bachelor_heading">Бакалавриат</h4>
+                      <p class="timeline-meta" data-i18n="timeline_meta_itmo">Университет ИТМО · Факультет программной инженерии и компьютерной техники</p>
+                      <a href="https://abit.itmo.ru/program/bachelor/system_software" class="uni-program-link" data-i18n="program_link">Программная инженерия</a>
                     </div>
                   </div>
                   <div class="timeline-detail">
-                    <p>Ключевые курсы: базы данных, Java, системное программирование, изучение операционных систем, ML. на учебе получил широкий кругозор, занимался всем - от программирования на машинных кодах до обучения моделей машинного обучения; имею глубокое системное понимание компьютерной техники.</p>
+                    <p data-i18n="timeline_courses_paragraph">Ключевые курсы: базы данных, Java, системное программирование, изучение операционных систем, ML. На учёбе получил широкий кругозор, занимался всем — от программирования на машинных кодах до обучения моделей машинного обучения; имею глубокое системное понимание компьютерной техники.</p>
                     <div class="projects-in-timeline">
-                      <h5>Учебные проекты</h5>
+                      <h5 data-i18n="study_projects_heading">Учебные проекты</h5>
                       <div class="project-card">
-                        <strong>Дипломная работа: «Разработка средства оценки планируемой нагрузки СУБД PostgreSQL на систему ввода-вывода»</strong>
-                        <p>Оценка — отлично.</p>
+                        <strong data-i18n="diploma_title">Дипломная работа: «Разработка средства оценки планируемой нагрузки СУБД PostgreSQL на систему ввода-вывода»</strong>
+                        <p data-i18n="grade_excellent">Оценка — отлично.</p>
                         <p class="project-links">
-                          <a href="https://github.com/ShchA317/diploma" target="_blank" rel="noopener">Репозиторий</a>
+                          <a href="https://github.com/ShchA317/diploma" target="_blank" rel="noopener" data-i18n="repo">Репозиторий</a>
                           <span class="link-sep">·</span>
-                          <a href="files/312192_bak1_diploma.pdf" target="_blank" rel="noopener">PDF</a>
+                          <a href="files/312192_bak1_diploma.pdf" target="_blank" rel="noopener" data-i18n="pdf">PDF</a>
                         </p>
                       </div>
                       <div class="project-card">
-                        <strong>Курсовая работа: «Разработка информационной системы и базы данных процессов получения прдметов в Minecraft»</strong>
-                        <p>Оценка — отлично.</p>
+                        <strong data-i18n="coursework_title">Курсовая работа: «Разработка информационной системы и базы данных процессов получения предметов в Minecraft»</strong>
+                        <p data-i18n="grade_excellent">Оценка — отлично.</p>
                         <p class="project-links">
-                          <a href="https://github.com/ShchA317/db-coursework/" target="_blank" rel="noopener">Репозиторий</a>
+                          <a href="https://github.com/ShchA317/db-coursework/" target="_blank" rel="noopener" data-i18n="repo">Репозиторий</a>
                         </p>
                       </div>
                       <div class="project-card">
-                        <strong>Курс «Сервисно-ориентированная архитектура»</strong>
-                        <p>REST (OpenAPI/Swagger), JAX-RS и Spring MVC, HTTPS; микросервисы — EJB, Consul, Spring Cloud; SOAP, Mule ESB.</p>
+                        <strong data-i18n="soa_course_title">Курс «Сервисно-ориентированная архитектура»</strong>
+                        <p data-i18n="soa_course_body">REST (OpenAPI/Swagger), JAX-RS и Spring MVC, HTTPS; микросервисы — EJB, Consul, Spring Cloud; SOAP, Mule ESB.</p>
                         <p class="project-links">
-                          <a href="https://github.com/ShchA317/SOA" target="_blank" rel="noopener">Репозиторий</a>
+                          <a href="https://github.com/ShchA317/SOA" target="_blank" rel="noopener" data-i18n="repo">Репозиторий</a>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="toggle-detail" aria-expanded="false"/>
+                  <button type="button" class="toggle-detail" aria-expanded="false"></button>
                 </div>
               </article>
-              <article class="timeline-item" data-year="Доп. образование">
+              <article class="timeline-item" data-year="Доп. образование" data-year-i18n="year_extra">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                  <h4>Курсы, сертификаты</h4>
-                  <p class="timeline-meta">Stepik и др.</p>
+                  <h4 data-i18n="courses_certs_heading">Курсы, сертификаты</h4>
+                  <p class="timeline-meta" data-i18n="courses_certs_meta">Stepik и др.</p>
                   <div class="timeline-detail">
-                    <p>Прохожу курсы на Stepik; отдельных «крутых» пока сертификатов нет — упор на практику в работе и учёбе.</p>
+                    <p data-i18n="courses_certs_body">Прохожу курсы на Stepik; отдельных «крутых» пока сертификатов нет — упор на практику в работе и учёбе.</p>
                   </div>
-                  <button type="button" class="toggle-detail" aria-expanded="false"/>
+                  <button type="button" class="toggle-detail" aria-expanded="false"></button>
                 </div>
               </article>
             </div>
           </div>
 
-          <!-- Карьера -->
           <div class="roadmap roadmap-career">
-            <h3 class="roadmap-heading">
+            <h3 class="roadmap-heading" data-i18n="career_heading">
               Карьера
             </h3>
             <div class="timeline">
-              <article class="timeline-item" data-year="2022–н.в.">
+              <article class="timeline-item" data-year="2022–н.в." data-year-i18n="year_career">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
                   <div class="uni-header">
-                    <a href="https://tbank.ru" class="uni-logo-link" title="Т-Банк" target="_blank" rel="noopener">
-                      <img src="assets/TBank-logo-dark.svg" alt="Т-Банк" class="uni-logo" />
+                    <a href="https://tbank.ru" class="uni-logo-link" data-logo-link="tbank" title="Т-Банк" target="_blank" rel="noopener">
+                      <img src="assets/TBank-logo-dark.svg" data-logo-alt="tbank" alt="Т-Банк" class="uni-logo" />
                     </a>
                     <div>
-                      <h4>QA Fullstack (Java/Kotlin)</h4>
-                      <p class="timeline-meta">Т-Банк</p>
+                      <h4 data-i18n="career_qa_title">QA Fullstack (Java/Kotlin)</h4>
+                      <p class="timeline-meta" data-i18n="career_tbank_meta">Т-Банк</p>
                     </div>
                   </div>
                   <div class="timeline-detail">
-                    <p>Рост от стажера до Senior QA Fullstack.</p>
+                    <p data-i18n="career_growth">Рост от стажёра до Senior QA Fullstack.</p>
                     <div class="projects-in-timeline">
-                      <h5>Рабочие проекты</h5>
+                      <h5 data-i18n="work_projects_heading">Рабочие проекты</h5>
                       <div class="project-card">
-                        <strong>Проектная команда</strong>
-                        <p>Организовывал кросс-командные сценарии, улучшал процессы и уровень зрелости в командах, влияющих на качество прдукта. 
-                           Прорабатывал тестирование на всех уровнях продукта - проводил e2e на 20+ команд и сервисов, курировал и ревьюил ИТ между критическими узлами,
-                            разрабатывал подход и тестовые стратегии компонентного тестирования в ключевых для проекта командах. </p>
+                        <strong data-i18n="project_team_title">Проектная команда</strong>
+                        <p data-i18n="project_team_body">Организовывал кросс-командные сценарии, улучшал процессы и уровень зрелости в командах, влияющих на качество продукта.
+                           Прорабатывал тестирование на всех уровнях продукта — проводил e2e на 20+ команд и сервисов, курировал и ревьюил интеграционные тесты между критическими узлами,
+                            разрабатывал подход и тестовые стратегии компонентного тестирования в ключевых для проекта командах.</p>
                       </div>
                       <div class="project-card">
-                        <strong>Большой платежный монолит</strong>
-                        <p>Занимался ручным тестированием. Разрабатывал и поддерживал автотесты новых фичей, учавствовал в масшатабном переписывании e2e тестов для повышения стабильности. Менторил стажеров.</p>
+                        <strong data-i18n="monolith_title">Большой платежный монолит</strong>
+                        <p data-i18n="monolith_body">Занимался ручным тестированием. Разрабатывал и поддерживал автотесты новых фичей, участвовал в масштабном переписывании e2e тестов для повышения стабильности. Менторил стажёров.</p>
                       </div>
                       <div class="project-card">
-                        <strong>Команда платежных микросервисов</strong>
-                        <p>Автоматизировал регрессы для 20+ микросервисов. Делал рефакторинг автотестов с большой кодовой базой. Разрабатывал и реализовывал НТ, проводил замеры покрытия кода. Сопровождал и поддерживал тесты в CI/CD. Менторил стажёров. Участвовал в ревью кода и проектировании новых фич.</p>
+                        <strong data-i18n="microservices_title">Команда платежных микросервисов</strong>
+                        <p data-i18n="microservices_body">Автоматизировал регрессы для 20+ микросервисов. Делал рефакторинг автотестов с большой кодовой базой. Разрабатывал и реализовывал НТ, проводил замеры покрытия кода. Сопровождал и поддерживал тесты в CI/CD. Менторил стажёров. Участвовал в ревью кода и проектировании новых фич.</p>
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="toggle-detail" aria-expanded="false"/>
+                  <button type="button" class="toggle-detail" aria-expanded="false"></button>
                 </div>
               </article>
               <article class="timeline-item" data-year="2020-2022">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                  <h4>Частный репетитор</h4>
-                  <p class="timeline-meta">Самозанятость</p>
+                  <h4 data-i18n="tutor_title">Частный репетитор</h4>
+                  <p class="timeline-meta" data-i18n="tutor_meta">Самозанятость</p>
                   <div class="timeline-detail">
-                    <p>Подготовка к Олипиадам, повышение технической грамотности</p>
+                    <p data-i18n="tutor_intro">Подготовка к олимпиадам, повышение технической грамотности</p>
                     <div class="projects-in-timeline">
                       <div class="project-card">
-                        <strong>Олимпиадное программирование</strong>
-                        <p>Программирование и алгоритмы для школьников, базовая дискретная математика</p>
+                        <strong data-i18n="oly_title">Олимпиадное программирование</strong>
+                        <p data-i18n="oly_body">Программирование и алгоритмы для школьников, базовая дискретная математика</p>
                       </div>
                       <div class="project-card">
-                        <strong>Arduino, робототехника, электроника</strong>
-                        <p>Помогал ученикам строить роботов, электронные схемы, программировать Arduino</p>
+                        <strong data-i18n="arduino_title">Arduino, робототехника, электроника</strong>
+                        <p data-i18n="arduino_body">Помогал ученикам строить роботов, электронные схемы, программировать Arduino</p>
                       </div>
                       <div class="project-card">
-                        <strong>Олимпиадная математика</strong>
-                        <p>Помогал ученикам подготовиться к олимпиадам по математике</p>
+                        <strong data-i18n="math_title">Олимпиадная математика</strong>
+                        <p data-i18n="math_body">Помогал ученикам подготовиться к олимпиадам по математике</p>
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="toggle-detail" aria-expanded="false"/>
+                  <button type="button" class="toggle-detail" aria-expanded="false"></button>
                 </div>
               </article>
             </div>
@@ -169,70 +186,70 @@
 
     <section id="skills" class="section skills-section">
       <div class="container">
-        <h2 class="section-title">Навыки и инструменты</h2>
-        <p class="section-lead">Около четырёх лет автоматизирую тестирование в одном из крупных технологичных финтехов: бекенд, API и интеграции в высоконагруженной среде. Ниже — стек и практики из реальной работы. Нажми на навык — откроется краткое описание опыта.</p>
+        <h2 class="section-title" data-i18n="skills_title">Навыки и инструменты</h2>
+        <p class="section-lead" data-i18n="skills_lead">Около четырёх лет автоматизирую тестирование в одном из крупных технологичных финтехов: бэкенд, API и интеграции в высоконагруженной среде. Ниже — стек и практики из реальной работы. Нажми на навык — откроется краткое описание опыта.</p>
         <div class="skills-grid">
           <div class="skill-group">
-            <h4>Языки и тест-стеки</h4>
+            <h4 data-i18n="group_languages">Языки и тест-стеки</h4>
             <div class="skill-list">
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
                   <span class="skill-name">Java</span>
-                  <span class="skill-level">уверенно</span>
+                  <span class="skill-level" data-i18n="level_confident">уверенно</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Основной язык для автотестов бекенда около четырёх лет: сервисные и интеграционные сценарии, собственные и командные фреймворки. Умею поддерживать читаемую структуру тестов и переиспользуемые фикстуры. Могу проводить ревью/исследования/замеры покрытия продуктового кода в проектах любой сложности</p>
+                  <p data-i18n="skill_java_detail">Основной язык для автотестов бэкенда около четырёх лет: сервисные и интеграционные сценарии, собственные и командные фреймворки. Умею поддерживать читаемую структуру тестов и переиспользуемые фикстуры. Могу проводить ревью/исследования/замеры покрытия продуктового кода в проектах любой сложности.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
                   <span class="skill-name">Kotlin</span>
-                  <span class="skill-level">уверенно</span>
+                  <span class="skill-level" data-i18n="level_confident">уверенно</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Пишу и сопровождаю тесты на Kotlin там, где это принято в команде: совместимость с Java-стеком, лаконичный синтаксис для DSL и билдеров данных. По необходимости — корутины в асинхронных сценариях, единый стиль с продакшен-кодом.</p>
+                  <p data-i18n="skill_kotlin_detail">Пишу и сопровождаю тесты на Kotlin там, где это принято в команде: совместимость с Java-стеком, лаконичный синтаксис для DSL и билдеров данных. По необходимости — корутины в асинхронных сценариях, единый стиль с продакшен-кодом.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
                   <span class="skill-name">JUnit 5, TestNG</span>
-                  <span class="skill-level">ежедневно</span>
+                  <span class="skill-level" data-i18n="level_daily">ежедневно</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Постоянное использование</p>
+                  <p data-i18n="skill_junit_detail">Постоянное использование</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
                   <span class="skill-name">Kotest</span>
-                  <span class="skill-level">опыт есть</span>
+                  <span class="skill-level" data-i18n="level_experience">опыт есть</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Использовал в Kotlin-проектах: стиль describe/behavior, матчеры и property-based подходы где уместно. Умею соседствовать с JUnit в одном репозитории и мигрировать постепенно, без ломки пайплайнов.</p>
+                  <p data-i18n="skill_kotest_detail">Использовал в Kotlin-проектах: стиль describe/behavior, матчеры и property-based подходы где уместно. Умею соседствовать с JUnit в одном репозитории и мигрировать постепенно, без ломки пайплайнов.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">REST, gRPC / API-тесты</span>
-                  <span class="skill-level">глубоко</span>
+                  <span class="skill-name" data-i18n="skill_row_api">REST, gRPC / API-тесты</span>
+                  <span class="skill-level" data-i18n="level_deep">глубоко</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>REST и внутренние HTTP API: контракты, негативные сценарии, идемпотентность и ошибки. REST Assured и «ручные» клиенты; проверка схем и статусов, несколько окружений и стендов. gRPC — вызовы по сгенерированным клиентам, метаданные и дедлайны, статусы и негативные кейсы; при необходимости ручная проверка через <code>grpcurl</code> и отладка совместимости proto.</p>
+                  <p data-i18n="skill_api_detail">REST и внутренние HTTP API: контракты, негативные сценарии, идемпотентность и ошибки. REST Assured и «ручные» клиенты; проверка схем и статусов, несколько окружений и стендов. gRPC — вызовы по сгенерированным клиентам, метаданные и дедлайны, статусы и негативные кейсы; при необходимости ручная проверка через <code>grpcurl</code> и отладка совместимости proto.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">Нагрузочное тестирование (Gatling)</span>
-                  <span class="skill-level">Scala, CI, Kubernetes</span>
+                  <span class="skill-name" data-i18n="skill_row_gatling">Нагрузочное тестирование (Gatling)</span>
+                  <span class="skill-level" data-i18n="level_nt">Scala, CI, Kubernetes</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Сценарии на Gatling (Scala): профили нагрузки, SLA и отчёты. Встраивал в разные виды CI — по коммитам, по расписанию, отдельные ночные/релизные прогоны; запуск против выделенных стендов и в оркестрации Kubernetes, где генератор нагрузки и целевой сервис живут в кластере. Согласование с DevOps по ресурсам и изоляции окружений.</p>
+                  <p data-i18n="skill_gatling_detail">Сценарии на Gatling (Scala): профили нагрузки, SLA и отчёты. Встраивал в разные виды CI — по коммитам, по расписанию, отдельные ночные/релизные прогоны; запуск против выделенных стендов и в оркестрации Kubernetes, где генератор нагрузки и целевой сервис живут в кластере. Согласование с DevOps по ресурсам и изоляции окружений.</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="skill-group">
-            <h4>Инфраструктура и процесс</h4>
+            <h4 data-i18n="group_infra">Инфраструктура и процесс</h4>
             <div class="skill-list">
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
@@ -240,87 +257,87 @@
                   <span class="skill-level">Jenkins, GitLab CI, GitHub Actions</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Участвую в настройке и поддержке пайплайнов: запуск автотестов на пуш и по расписанию, артефакты отчётов, параллелизация по модулям, уведомления в мессенджеры. В том числе отдельные джобы под нагрузочные прогоны (Gatling) и их артефакты. Jenkins, GitLab CI и GitHub Actions — в зависимости от репозитория; тесная работа с DevOps на сложных шагах.</p>
+                  <p data-i18n="skill_cicd_detail">Участвую в настройке и поддержке пайплайнов: запуск автотестов на пуш и по расписанию, артефакты отчётов, параллелизация по модулям, уведомления в мессенджеры. В том числе отдельные джобы под нагрузочные прогоны (Gatling) и их артефакты. Jenkins, GitLab CI и GitHub Actions — в зависимости от репозитория; тесная работа с DevOps на сложных шагах.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
                   <span class="skill-name">Docker, Testcontainers</span>
-                  <span class="skill-level">регулярно</span>
+                  <span class="skill-level" data-i18n="level_regularly">регулярно</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Поднимаю БД, брокеры и зависимости в изолированных тестах; кастомные образы и compose там, где нужно. Слежу за временем прогона и стабильностью — типичная картина для интеграционных тестов в финтехе.</p>
+                  <p data-i18n="skill_docker_detail">Поднимаю БД, брокеры и зависимости в изолированных тестах; кастомные образы и compose там, где нужно. Слежу за временем прогона и стабильностью — типичная картина для интеграционных тестов в финтехе.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">Kafka, очереди</span>
-                  <span class="skill-level">уверенно</span>
+                  <span class="skill-name" data-i18n="skill_row_kafka">Kafka, очереди</span>
+                  <span class="skill-level" data-i18n="level_confident">уверенно</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Сценарии с продюсерами и консьюмерами: тестовые топики, проверка порядка и идемпотентности обработки, embedded/контейнерный Kafka в тестах. Не ядро каждого дня, но уверенно закрываю задачи с асинхронными потоками.</p>
+                  <p data-i18n="skill_kafka_detail">Сценарии с продюсерами и консьюмерами: тестовые топики, проверка порядка и идемпотентности обработки, embedded/контейнерный Kafka в тестах. Не ядро каждого дня, но уверенно закрываю задачи с асинхронными потоками.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">Мокирование</span>
+                  <span class="skill-name" data-i18n="skill_row_mock">Мокирование</span>
                   <span class="skill-level">Mountebank, Wiremock, Mockito</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Виртуализация зависимостей: поднимаю импостеры для HTTP(S), при необходимости TCP и других протоколов, задаю предикаты и ответы, прокси на реальные стенды. Использую, когда нужен единый инструмент для нескольких типов заглушек и сценариев с подстановкой; встраивание в CI и локальные прогоны, согласование портов и конфигов с контейнерами.</p>
+                  <p data-i18n="skill_mock_detail">Виртуализация зависимостей: поднимаю импостеры для HTTP(S), при необходимости TCP и других протоколов, задаю предикаты и ответы, прокси на реальные стенды. Использую, когда нужен единый инструмент для нескольких типов заглушек и сценариев с подстановкой; встраивание в CI и локальные прогоны, согласование портов и конфигов с контейнерами.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">SQL, БД</span>
-                  <span class="skill-level">продвинуто · PostgreSQL, Oracle, Cassandra</span>
+                  <span class="skill-name" data-i18n="skill_row_sql">SQL, БД</span>
+                  <span class="skill-level" data-i18n="level_sql">продвинуто · PostgreSQL, Oracle, Cassandra</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>PL/SQL, Продвинутый SQL: сложные выборки, оконные функции, планы запросов там, где важна производительность проверок; агрегаты и сверка инвариантов после операций. Тестовые данные, изоляция сценариев, миграции в контексте автотестов. PostgreSQL и H2 для быстрых прогонов; опыт с <strong>Apache Cassandra</strong> — моделирование под запросы, consistency, проверка данных в распределённом хранилище в e2e и сервисных тестах.</p>
+                  <p data-i18n="skill_sql_detail">PL/SQL, Продвинутый SQL: сложные выборки, оконные функции, планы запросов там, где важна производительность проверок; агрегаты и сверка инвариантов после операций. Тестовые данные, изоляция сценариев, миграции в контексте автотестов. PostgreSQL и H2 для быстрых прогонов; опыт с <strong>Apache Cassandra</strong> — моделирование под запросы, consistency, проверка данных в распределённом хранилище в e2e и сервисных тестах.</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="skill-group">
-            <h4>Домен и практики</h4>
+            <h4 data-i18n="group_domain">Домен и практики</h4>
             <div class="skill-list">
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">Финтех</span>
-                  <span class="skill-level">платёжные/кредитные системы, расчёты, регулярные и шаблонные операции</span>
+                  <span class="skill-name" data-i18n="skill_row_fintech">Финтех</span>
+                  <span class="skill-level skill-level-long" data-i18n="skill_fintech_level">платёжные/кредитные системы, расчёты, регулярные и шаблонные операции</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Контекст высоконагруженных платёжных и расчётных сервисов: деньги, лимиты, отчётность, интеграции с внешними системами. Понимаю приоритеты по рискам, регламентам и SLA; умею переводить требования в проверяемые автосценарии.</p>
+                  <p data-i18n="skill_fintech_detail">Контекст высоконагруженных платёжных и расчётных сервисов: деньги, лимиты, отчётность, интеграции с внешними системами. Понимаю приоритеты по рискам, регламентам и SLA; умею переводить требования в проверяемые автосценарии.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">Кросс-командные E2E</span>
-                  <span class="skill-level">организовывал на 20+ команд</span>
+                  <span class="skill-name" data-i18n="skill_row_e2e">Кросс-командные E2E</span>
+                  <span class="skill-level" data-i18n="skill_e2e_level">организовывал на 20+ команд</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Организация крупных сквозных сценариев, когда в цепочке участвуют десятки команд: договорённости по контрактам и тестовым данным, 
-                    зоны ответственности, стабильные стенды и очередь на слоты прогона. Снижение флакинесса, прозрачные критерии «зелёного» прогона,
+                  <p data-i18n="skill_e2e_detail">Организация крупных сквозных сценариев, когда в цепочке участвуют десятки команд: договорённости по контрактам и тестовым данным,
+                    зоны ответственности, стабильные стенды и очередь на слоты прогона. Снижение флейкинесса, прозрачные критерии «зелёного» прогона,
                     эскалации и приоритизация при инцидентах; умение балансировать скорость поставки и покрытие end-to-end на уровне продукта.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">Code review, менторство</span>
-                  <span class="skill-level">регулярно</span>
+                  <span class="skill-name" data-i18n="skill_row_review">Code review, менторство</span>
+                  <span class="skill-level" data-i18n="skill_review_level">регулярно</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Ревью автотестов и смежного кода: читаемость, стабильность, отсутствие дублирования. Онбординг QA от стажёров до мидлов. 
-                    Менторство внутри компании: подготовка к повышениям или смене специализации, внедрение практик и инструментов в команду</p>
+                  <p data-i18n="skill_review_detail">Ревью автотестов и смежного кода: читаемость, стабильность, отсутствие дублирования. Онбординг QA от стажёров до мидлов. 
+                    Менторство внутри компании: подготовка к повышениям или смене специализации, внедрение практик и инструментов в команду.</p>
                 </div>
               </div>
               <div class="skill-item">
                 <button type="button" class="skill-item-header" aria-expanded="false">
-                  <span class="skill-name">QA-Менеджмент, практики и процессы</span>
-                  <span class="skill-level">внедрение, метрики, планирование</span>
+                  <span class="skill-name" data-i18n="skill_row_qa_mgmt">QA-Менеджмент, практики и процессы</span>
+                  <span class="skill-level" data-i18n="skill_qa_mgmt_level">внедрение, метрики, планирование</span>
                 </button>
                 <div class="skill-item-detail">
-                  <p>Курировал внедрение QA-практик в команды: договорённости по качеству, единые ожидания по тест-дизайну и автоматизации, развитие зрелости. Помогал настраивать сбор и интерпретацию метрик по качеству и поставке. Вводил и настраивал процессы аудитов и квартального планирования: приоритизация улучшений, согласование целей с продуктом и инженерией.</p>
+                  <p data-i18n="skill_qa_mgmt_detail">Курировал внедрение QA-практик в команды: договорённости по качеству, единые ожидания по тест-дизайну и автоматизации, развитие зрелости. Помогал настраивать сбор и интерпретацию метрик по качеству и поставке. Вводил и настраивал процессы аудитов и квартального планирования: приоритизация улучшений, согласование целей с продуктом и инженерией.</p>
                 </div>
               </div>
             </div>
@@ -331,32 +348,32 @@
 
     <section id="about" class="section about-section">
       <div class="container">
-        <h2 class="section-title">Увлечения и обо мне</h2>
-        <p class="section-lead">Чем живу вне работы и почему со мной интересно работать или учиться.</p>
+        <h2 class="section-title" data-i18n="about_title">Увлечения и обо мне</h2>
+        <p class="section-lead" data-i18n="about_lead">Чем живу вне работы и почему со мной интересно работать или учиться.</p>
         <div class="about-content">
-          <p><strong>Не только код:</strong> кидаю смешные мемы в чаты. В универе занимался картингом, яхтингом и греблей; призёр чемпионата вуза по армрестлингу в ковидный год (никого не было).</p>
+          <p data-i18n="about_body"><strong>Не только код:</strong> кидаю смешные мемы в чаты. В универе занимался картингом, яхтингом и греблей; призёр чемпионата вуза по армрестлингу в ковидный год (никого не было).</p>
         </div>
       </div>
     </section>
 
     <section id="contact" class="section contact-section">
       <div class="container">
-        <h2 class="section-title">Связаться</h2>
-        <p class="section-lead">Работодателям и тем, кто ищет ментора — добро пожаловать.</p>
+        <h2 class="section-title" data-i18n="contact_title">Связаться</h2>
+        <p class="section-lead" data-i18n="contact_lead">Работодателям и тем, кто ищет ментора — добро пожаловать.</p>
         <div class="contact-links">
           <a href="mailto:neegroom@yandex.ru" class="contact-link">Email</a>
           <a href="https://t.me/e6eishii" class="contact-link" target="_blank" rel="noopener">Telegram</a>
           <a href="https://github.com/ShchA317" class="contact-link" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/alexander-shcherbakov-08743b217/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-        <p class="contact-cta">Хочешь обсудить проект, вакансию или менторство — напиши, с радостью отвечу.</p>
+        <p class="contact-cta" data-i18n="contact_cta">Хочешь обсудить проект, вакансию или менторство — напиши, с радостью отвечу.</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Alexander · QA Fullstack · Навайбкожено с вниманием к деталям</p>
+      <p data-i18n="footer_line">© 2025 Alexander · QA Fullstack · Навайбкожено с вниманием к деталям</p>
     </div>
   </footer>
 

@@ -63,6 +63,85 @@ body {
   z-index: 1;
   text-align: center;
   padding: 3rem 1rem;
+  padding-top: 3.5rem;
+}
+
+/* Language toggle */
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: var(--space);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  z-index: 2;
+}
+
+.lang-label {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  min-width: 1.5rem;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+[data-lang="en"] .lang-label[data-lang-label="en"],
+[data-lang="ru"] .lang-label[data-lang-label="ru"] {
+  color: var(--accent);
+}
+
+.lang-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.lang-toggle:hover {
+  border-color: var(--accent);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lang-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.25s ease;
+  pointer-events: none;
+}
+
+[data-lang="en"] .lang-toggle-knob {
+  transform: translateX(20px);
+}
+
+@media (max-width: 640px) {
+  .lang-switch {
+    position: relative;
+    top: auto;
+    right: auto;
+    align-self: flex-end;
+    margin: 0 0 1rem;
+  }
+
+  .hero-inner {
+    padding-top: 2rem;
+  }
 }
 
 main,
@@ -380,6 +459,9 @@ main,
 .toggle-detail[aria-expanded="true"]::before { content: 'Свернуть'; }
 .toggle-detail[aria-expanded="false"]::before { content: 'Подробнее'; }
 
+[data-lang="en"] .toggle-detail[aria-expanded="true"]::before { content: 'Collapse'; }
+[data-lang="en"] .toggle-detail[aria-expanded="false"]::before { content: 'Details'; }
+
 /* ===== Skills ===== */
 .skills-section { background: var(--surface); }
 
@@ -468,6 +550,10 @@ main,
   color: var(--text-muted);
   max-width: 50%;
   text-align: right;
+}
+
+.skill-level-long {
+  max-width: 58%;
 }
 
 .skill-item-detail {
